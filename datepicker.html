@@ -1,0 +1,49 @@
+<!doctype html>
+<html ng-app="ui.bootstrap.demo">
+  <head>
+    <script src="http://digitalbush.com/wp-includes/js/jquery/jquery.js?ver=1.11.2"></script>
+    <script src="http://digitalbush.com/wp-content/uploads/2014/10/jquery.maskedinput.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-utils/0.1.1/angular-ui-utils.min.js"></script>
+    <script src="example.js"></script>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body> 
+    <div ng-controller="DatepickerDemoCtrl">
+        <br>
+        <div class="row">
+            <div class="col-xs-4">
+                No Mask
+                <p class="input-group">
+                  <input type="text" class="form-control" datepicker-popup="dd/MM/yyyy" ng-model="dt" is-open="opened" 
+                   ng-required="true" close-text="Close" show-weeks="false" show-button-bar="false" placeholder="__/__/____" />
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                </p>
+            </div>
+            <div class="col-xs-7">
+             <strong>Model:</strong> {{dt}}
+            </div>
+            
+            <br><br><br><br><br><br>
+            
+            <div class="col-xs-4">
+                Mask
+                <p class="input-group">
+                  <input type="text" class="form-control" datepicker-popup="MM/dd/yyyy" ng-model="dt2" is-open="opened2" 
+                  min-date="'2010-01-02'" max-date="dt" ng-required="true" close-text="Close" show-weeks="false" show-button-bar="false" 
+                  ng-blur="update()" />
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open2($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                </p>
+            </div>
+            <div class="col-xs-7">
+             <strong>Model:</strong> {{dt2}}
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
